@@ -12,8 +12,8 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" options={{headerShown: false}} component={HomeScreen} />
-        {/* <Stack.Screen name="Welcome" options={{headerShown: false}} component={WelcomeScreen} />
-        <Stack.Screen name="Main" options={{headerShown: false}} component={MainScreen} /> */}
+        <Stack.Screen name="Welcome" options={{headerShown: false}} component={WelcomeScreen} />
+        <Stack.Screen name="Main" options={{headerShown: false}} component={MainScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
