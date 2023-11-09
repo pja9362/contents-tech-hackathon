@@ -27,6 +27,9 @@ app.use(express.urlencoded({ extended: true }));
 const routes = require('./routes');
 app.use('/', routes);
 
+const enrollPlantInfoRouter = require('./routes/plants/plants');
+app.use('/plants', enrollPlantInfoRouter);
+
 // 에러 핸들러 설정
 app.use((err, req, res, next) => {
   console.error(err.stack);
