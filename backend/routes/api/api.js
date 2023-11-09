@@ -5,7 +5,7 @@ const axios = require("axios");
 const router = express.Router();
 
 // 공공데이터포털 API 엔드포인트
-const apiKey = process.env.API_KEY;
+// const apiKey = process.env.API_KEY;
 const apiUrl =
   "http://openapi.nature.go.kr/openapi/service/rest/KpniService/btncInfo";
 
