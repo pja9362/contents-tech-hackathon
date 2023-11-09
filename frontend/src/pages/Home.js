@@ -38,7 +38,7 @@ const Home = ({ navigation }) => {
         style={{ width: "70%", height: 42, backgroundColor: "lightgray" }}
       ></View>
 
-      <Text style={styles.indexText}>{currentStep}/3</Text>
+      <Text style={styles.indexText}>{currentStep}/2</Text>
 
       <TouchableOpacity style={styles.button} onPress={onNextStep}>
         <Text>{currentStep === 2 ? "완료" : "다음"}</Text>

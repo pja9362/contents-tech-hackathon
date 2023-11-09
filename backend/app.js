@@ -23,6 +23,10 @@ connectMongoDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// 라우터 설정
+const routes = require('./routes');
+app.use('/', routes);
+
 // 에러 핸들러 설정
 app.use((err, req, res, next) => {
   console.error(err.stack);
