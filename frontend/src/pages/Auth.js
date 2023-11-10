@@ -11,10 +11,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import topLogo from "../images/top_logo.png";
 import mainPlant from "../images/mainPlant.png";
 import { AntDesign } from "@expo/vector-icons";
+import CustomPopup from "../components/CustomPopup";
 
 const Auth = ({ navigation }) => {
   const API_URL = "http://192.168.0.29:3000";
   const [username, setUsername] = useState("");
+
+  const [isVisibleAlert, setIsVisibleAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
 
   const onSubmit = async (name) => {
     try {
@@ -30,11 +34,13 @@ const Auth = ({ navigation }) => {
 
       if (response.ok) {
         AsyncStorage.setItem("username", name);
-        alert("회원가입이 완료되었습니다.");
+        setAlertMessage('반가워요\n🌿☘️🌴🌱🍃🍐');
+        setIsVisibleAlert(true);
+
         navigation.navigate("Home");
       } else if (response.status === 409) {
-        console.log("중복된 닉네임입니다.");
-        alert("닉네임을 확인해주세요!");
+        setAlertMessage('중복된 닉네임입니다.');
+        setIsVisibleAlert(true);
       }
     } catch (err) {
       console.log(err);
@@ -66,6 +72,12 @@ const Auth = ({ navigation }) => {
           <AntDesign name="right" size={20} color="white" />
         </TouchableOpacity>
       </View>
+
+      <CustomPopup
+            isVisible={isVisibleAlert} 
+            message={alertMessage} 
+            onClose={() => setIsVisibleAlert(false)} 
+          />
     </View>
   );
 };
