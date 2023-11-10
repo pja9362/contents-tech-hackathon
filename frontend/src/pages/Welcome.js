@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  TextInput,
   Image,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -29,8 +28,9 @@ const Welcome = ({ navigation }) => {
   useEffect(() => {
     getData();
   }, []);
+  
   const onNextStep = () => {
-    navigation.navigate("Main");
+    navigation.navigate("MainStack");
   };
 
   return (
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     width: 160,
     height: 40,
     resizeMode: "contain",
-    marginTop: 40,
+    marginTop: 45,
   },
   welcomeText: {
     fontSize: 18,

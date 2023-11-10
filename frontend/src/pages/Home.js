@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     width: 160,
     height: 40,
     resizeMode: "contain",
-    marginTop: 40,
+    marginTop: 45,
   },
   welcomeText: {
     fontSize: 18,
