@@ -24,11 +24,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 라우터 설정
-const routes = require('./routes');
-app.use('/', routes);
+const signupRouter = require('./routes/auth/signup');
+app.use('/auth', signupRouter);
 
-const enrollPlantInfoRouter = require('./routes/plants/plants');
-app.use('/plants', enrollPlantInfoRouter);
+const enrollPlantRouter = require('./routes/plants/enrollPlant');
+app.use('/plants', enrollPlantRouter);
 
 // 에러 핸들러 설정
 app.use((err, req, res, next) => {

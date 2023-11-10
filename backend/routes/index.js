@@ -1,10 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-// const apiRouter = require('./api/api');
-const enrollPlantInfoRouter = require('./plants/plants');
+const auth = require("./auth");
+const api = require('./api/api');
+const plants = require('./plants');
 
-// router.use('/api', apiRouter);
-router.use('/plants', enrollPlantInfoRouter);
+router.get("/", (req, res) => {
+    res.locals.title = "Node Chat!";
+    res.json("{index}");
+});
+
+router.use("/auth", auth);
+router.use('/api', api);
+router.use('/plants', plants);
 
 module.exports = router;
