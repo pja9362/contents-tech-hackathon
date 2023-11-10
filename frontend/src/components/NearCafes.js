@@ -5,23 +5,27 @@ import * as Location from "expo-location";
 import getDummyImage from "../utils/getDummyImage";
 import { Ionicons } from "@expo/vector-icons";
 
-const NearCafes = () => {
+const NearCafes = ({ setIsApplying }) => {
   const API_URL = "http://192.168.0.29:3000";
   const [location, setLocation] = useState(null);
   const [cafes, setCafes] = useState([
     {
+      id: 1,
       name: "자명문",
       description: "안녕하세요 노티드입니다. 저희는 다육이 잘키워요.",
     },
     {
+      id: 2,
       name: "스타벅스 고양킨텍스 2호점",
       description: "반갑습니다. 저희는 힘없는 반려식물들이 다시 살려냅니다",
     },
     {
+      id: 3,
       name: "투썸플레이스 대화점",
       description: "저희 투썸은 전자파를 받지않고, 늘 좋은 노래를 틀어요.",
     },
     {
+      id: 4,
       name: "테일러커피",
       description: "카페에서 공부하는 학생들이 식물을 보고 너무 좋아해요.",
     },
@@ -63,7 +67,11 @@ const NearCafes = () => {
       </View>
       <View style={styles.cafeContainer}>
         {cafes.map((cafe, index) => (
-          <TouchableOpacity key={index} style={styles.cafeCard}>
+          <TouchableOpacity
+            key={index}
+            style={styles.cafeCard}
+            onPress={() => setIsApplying(true, cafe)}
+          >
             <Image source={getDummyImage(index)} style={styles.cafeImage} />
             <View style={styles.nameContainer}>
               <Ionicons name="cafe" size={20} color="black" />
@@ -80,7 +88,7 @@ const NearCafes = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    padding: 15,
   },
   currentPlace: {
     flexDirection: "row",
@@ -121,7 +129,7 @@ const styles = StyleSheet.create({
   },
   cafeImage: {
     width: "100%",
-    height: 120,
+    height: 130,
     marginBottom: 8,
     borderRadius: 8,
   },
