@@ -30,6 +30,13 @@ app.use('/auth', signupRouter);
 const enrollPlantRouter = require('./routes/plants/enrollPlant');
 app.use('/plants', enrollPlantRouter);
 
+// 더미 데이터 추가 로직
+// const cafeRouter = require('./routes/cafe/cafe');
+// app.use('/cafe', cafeRouter);
+
+const nearbyCafesRouter = require('./routes/cafe/nearbyCafes');
+app.use('/cafe', nearbyCafesRouter);
+
 // 에러 핸들러 설정
 app.use((err, req, res, next) => {
   console.error(err.stack);
