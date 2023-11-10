@@ -5,8 +5,12 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  Image,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import topLogo from "../images/top_logo.png";
+import mainPlant from "../images/mainPlant.png";
+import { AntDesign } from "@expo/vector-icons";
 
 const Auth = ({ navigation }) => {
   const API_URL = "http://192.168.0.29:3000";
@@ -39,29 +43,29 @@ const Auth = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          marginTop: "40%",
-          width: 150,
-          height: 150,
-          borderRadius: 75,
-          backgroundColor: "lightgray",
-        }}
-      ></View>
-
-      <View>
-        <Text style={styles.mainText}>닉네임을 입력해주세요!</Text>
+      <Image source={topLogo} style={styles.topLogo} />
+      <View style={styles.imageContainer}>
+        <Image source={mainPlant} style={styles.mainPlant} />
+      </View>
+      <View style={styles.bottomSheet}>
+        <Text style={styles.mainText}>보호자의 이름을 알려주세요!</Text>
         <View style={styles.inputContainer}>
           <TextInput
+            style={styles.input}
             placeholder="닉네임을 입력해주세요"
             onChangeText={(text) => setUsername(text)}
             value={username}
           />
         </View>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => onSubmit(username)}
+        >
+          <Text style={styles.buttonText}>시작하기</Text>
+          <AntDesign name="right" size={20} color="white" />
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => onSubmit(username)}>
-        <Text>시작하기</Text>
-      </TouchableOpacity>
     </View>
   );
 };
@@ -70,43 +74,79 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  topLogo: {
+    width: 160,
+    height: 40,
+    resizeMode: "contain",
+    marginTop: 40,
+  },
+  imageContainer: {
+    width: '60%',
+    marginHorizontal: '20%',
+    marginTop: 60,
+    marginBottom: -15,
+    zIndex: 2,
+    aspectRatio: 1,
+    borderRadius: 125,
+    backgroundColor: "#fff",
+    justifyContent: "center",
     alignItems: "center",
-    padding: 20,
+    borderWidth: 2,
+    borderColor: "#CCDF9D",
+  },
+  mainPlant: {
+    width: 320,
+    height: 250,
+    resizeMode: "contain",
+    alignSelf: "center",
+    marginBottom: 25,
   },
   mainText: {
     fontSize: 18,
     fontWeight: "bold",
-    marginVertical: 10,
-  },
-  indexText: {
-    fontSize: 12,
-    marginTop: 10,
-    marginBottom: 10,
+    marginVertical: 25,
+    textAlign: "center",
   },
   inputContainer: {
     width: "100%",
     alignItems: "center",
   },
-  inputWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
-    width: "80%",
-    marginBottom: 20,
-  },
   input: {
-    flex: 1,
+    width: "80%",
     height: 40,
-    borderColor: "gray",
+    backgroundColor: "#fff",
+    borderRadius: 15,
     borderWidth: 1,
-    paddingLeft: 10,
-    marginRight: 10,
+    borderColor: "#D6EAD6",
+    paddingHorizontal: 20,
+  },
+  bottomSheet: {
+    backgroundColor: "#F4F8E9",
+    width: "100%",
+    height: "55%",
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    alignItems: "center",
   },
   button: {
-    width: "80%",
+    width: "50%",
     height: 40,
-    backgroundColor: "lightgray",
+    backgroundColor: "#CCDF9D",
     justifyContent: "center",
     alignItems: "center",
+    zIndex: 3,
+    bottom: 100,
+    position: "absolute",
+    borderRadius: 20,
+    flexDirection: "row",
+    gap: 5,
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#6D371E",
+    paddingLeft: 10,
   },
 });
 

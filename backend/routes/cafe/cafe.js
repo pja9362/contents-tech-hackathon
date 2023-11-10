@@ -1,3 +1,4 @@
+// 카페 더미데이터 추가 로직
 // const express = require("express");
 // const router = express.Router();
 // const mongoose = require("mongoose");

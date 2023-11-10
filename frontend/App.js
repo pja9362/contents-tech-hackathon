@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SplashScreen from './src/pages/Splash';
 import AuthScreen from './src/pages/Auth';
 import HomeScreen from './src/pages/Home';
 import WelcomeScreen from './src/pages/Welcome';
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Splash" options={{headerShown: false}} component={SplashScreen} />
         <Stack.Screen name="Auth" options={{headerShown: false}} component={AuthScreen} />
         <Stack.Screen name="Home" options={{headerShown: false}} component={HomeScreen} />
         <Stack.Screen name="Welcome" options={{headerShown: false}} component={WelcomeScreen} />
