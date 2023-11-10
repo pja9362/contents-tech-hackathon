@@ -5,6 +5,7 @@ import AuthScreen from './src/pages/Auth';
 import HomeScreen from './src/pages/Home';
 import WelcomeScreen from './src/pages/Welcome';
 import MainScreen from './src/pages/Main';
+import CafeListScreen from './src/pages/CafeList';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -16,6 +17,7 @@ const App = () => {
         <Stack.Screen name="Home" options={{headerShown: false}} component={HomeScreen} />
         <Stack.Screen name="Welcome" options={{headerShown: false}} component={WelcomeScreen} />
         <Stack.Screen name="Main" options={{headerShown: false}} component={MainScreen} />
+        <Stack.Screen name="CafeList" options={{headerShown: false}} component={CafeListScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
