@@ -1,10 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-const Main = () => {
+const Main = ({navigation}) => {
+
     return (
         <View style={styles.container}>
             <Text>메인페이지</Text>
+            <TouchableOpacity style={styles.cafeBtn} onPress={() => navigation.navigate("CafeList")}>
+                <Text>주변 카페</Text>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -15,6 +19,11 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent:'center',
+    },
+    cafeBtn: {
+        backgroundColor: 'skyblue',
+        padding: 20,
+        margin: 20
     }
 });
 
