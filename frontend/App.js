@@ -78,7 +78,6 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* bottom nav 가 없어야함 */}
         <Stack.Screen name="Splash" options={{headerShown: false}} component={SplashScreen} />
         <Stack.Screen name="Auth" options={{headerShown: false}} component={AuthScreen} />
         <Stack.Screen name="Home" options={{headerShown: false}} component={HomeScreen} />

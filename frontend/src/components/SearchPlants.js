@@ -22,8 +22,8 @@ const SearchCafes = () => {
     },
     {
       storeName: "킨텍스부동산",
-      plantType: "땅콩나무",
-      plantName: "콩이",
+      plantType: "허브",
+      plantName: "땅콩",
       image: getPlantDummyImage(2),
     },
     {
