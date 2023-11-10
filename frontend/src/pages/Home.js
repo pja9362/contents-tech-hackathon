@@ -12,6 +12,7 @@ import topLogo from "../images/top_logo.png";
 import mainPlant from "../images/mainPlant.png";
 import { AntDesign } from "@expo/vector-icons";
 import StepIndicator from "../components/StepIndicator";
+import CustomPopup from "../components/CustomPopup";
 
 const Home = ({ navigation }) => {
   const API_URL = "http://192.168.0.29:3000";
@@ -20,6 +21,9 @@ const Home = ({ navigation }) => {
   const [plantType, setPlantType] = useState("");
   const [plantName, setPlantName] = useState("");
   const [username, setUsername] = useState("");
+
+  const [isVisibleAlert, setIsVisibleAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
 
   const getData = async () => {
     try {
@@ -57,11 +61,13 @@ const Home = ({ navigation }) => {
         });
 
         if (response.status === 200) {
-          alert("식물 등록이 완료되었습니다.");
+          setAlertMessage("식물 등록이 완료되었습니다\n⭐️💡✨🌙🧀🌕");
+          setIsVisibleAlert(true);
           AsyncStorage.setItem("plantName", plantName);
           navigation.navigate("Welcome");
         } else {
-          alert("올바른 정보를 입력해주세요");
+          setAlertMessage("올바른 정보를 입력해주세요");
+          setIsVisibleAlert(true);
         }
       } catch (err) {
         console.error(err);
@@ -103,14 +109,20 @@ const Home = ({ navigation }) => {
             </View>
           </>
         )}
-      <View style={{marginTop: '50%'}}>
-        <StepIndicator steps={['1', '2']} currentStep={currentStep - 1} />
+        <View style={{ marginTop: "50%" }}>
+          <StepIndicator steps={["1", "2"]} currentStep={currentStep - 1} />
         </View>
         <TouchableOpacity style={styles.button} onPress={onNextStep}>
           <Text style={styles.buttonText}>NEXT</Text>
           <AntDesign name="right" size={20} color="white" />
         </TouchableOpacity>
       </View>
+
+      <CustomPopup
+        isVisible={isVisibleAlert}
+        message={alertMessage}
+        onClose={() => setIsVisibleAlert(false)}
+      />
     </View>
   );
 };
@@ -131,7 +143,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 65,
     marginTop: 10,
-    color: '#6D371E'
+    color: "#6D371E",
   },
   imageContainer: {
     width: "60%",
