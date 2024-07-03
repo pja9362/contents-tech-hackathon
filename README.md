@@ -1,5 +1,5 @@
 # contents-tech-hackathon
-🏆 2023 콘텐츠유니버스 코리아 <b>콘텐츠 테크 해커톤 대상</b>
+<b>🏆 2023 콘텐츠유니버스 코리아, 콘텐츠 테크 해커톤 대상</b>
 
 # Plends 플렌즈
 <img width="49%" alt="image" src="https://github.com/pja9362/contents-tech-hackathon/assets/80195979/5b1cb4dc-734a-4af2-a5a1-3f96fe0ed292">
